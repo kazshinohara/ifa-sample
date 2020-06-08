@@ -1,0 +1,12 @@
+apiVersion: networking.gke.io/v1beta1
+kind: MultiClusterIngress
+metadata:
+  name: zone-mci
+  annotations:
+    networking.gke.io/static-ip: 34.107.223.188
+spec:
+  template:
+    spec:
+      backend:
+       serviceName: zone-svc
+       servicePort: 80

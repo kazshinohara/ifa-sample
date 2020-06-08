@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoneprinter
+  namespace: default
+  labels:
+    app: zoneprinter
+spec:
+  selector:
+    matchLabels:
+      app: zoneprinter
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: zoneprinter
+    spec:
+      containers:
+      - name: frontend
+        image: gcr.io/google-samples/zone-printer:0.2
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,16 @@
+apiVersion: cloud.google.com/v1beta1
+kind: BackendConfig
+metadata:
+  name: zone-health-check-cfg
+spec:
+  healthCheck:
+    checkIntervalSec: 3
+    timeoutSec: 3
+    healthyThreshold: 2
+    unhealthyThreshold: 2
+    type: HTTP
+    port: 8080
+    requestPath: /ping
+  timeoutSec: 60
+  connectionDraining:
+    drainingTimeoutSec: 30 
